@@ -6,6 +6,7 @@
 % >>>
 % <<< ARGUMENTS DE COMMANDE
 \usepackage{xargs}
+\usepackage{xstring}
 % >>>
 % <<< ITEMIZE
 \usepackage{enumitem}
@@ -13,6 +14,7 @@
 % <<< FIGURES
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{float}
 % >>>
 % <<< INSERTION DE CODE
 \usepackage{moreverb}
@@ -26,7 +28,7 @@
 \usepackage{fancyhdr}
 % >>>
 % <<< MATHÉMATIQUES
-\usepackage[fleqn]{amsmath}
+\usepackage[reqno]{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{bbm}
@@ -158,9 +160,6 @@
 \newcommand{\Taugstar}[0]{\mathcal{T}_G^* = (T, \{X_t : t \in T\})}
 \newcommand{\pdsol}[1]{(X_{#1}^0, X_{#1}^1, X_{#1}^2, M_{#1})}
 
-\newcommand{\authmach}[1]{$#1$-\emph{disponible}}
-\newcommand{\tphase}[0]{phase}
-\newcommand{\nbphase}[0]{I_{max}}
 % >>>
 % <<< NOM DE PROBLEMES
 \newcommand{\hcycle}{\textsc{HAMILTONIAN CYCLE}}
