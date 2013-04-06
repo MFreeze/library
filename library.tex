@@ -1,3 +1,6 @@
+% <<< CONDITIONS
+\usepackage{ifthen}
+% >>>
 % <<< ENCODAGE ET POLICE
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -24,13 +27,18 @@
 % >>>
 % <<< RÉDUCTION DES MARGES
 %\usepackage{fullpage}
-\usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=3.5cm]{geometry}
-\usepackage{fancyhdr}
+\ifthenelse{\isundefined{\bpresentation}}{
+    \usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=3.5cm]{geometry}
+    \usepackage{fancyhdr}
+}{}
 % >>>
 % <<< MATHÉMATIQUES
-\usepackage[reqno]{amsmath}
+\ifthenelse{\isundefined{\bpresentation}}{
+    \usepackage[reqno]{amsmath}
+}{}
 \usepackage{amsthm}
 \usepackage{amssymb}
+
 \usepackage{bbm}
 \usepackage{amssymb}
 \usepackage{stmaryrd}
@@ -53,7 +61,6 @@
 % <<< ALGORITHMES
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
-\usepackage{ifthen}
 %\usepackage{algorithmic}
 %\usepackage{algorithmicx}
 % >>>
@@ -68,7 +75,9 @@
 % <<< THÉORÈMES, lEMMES -- NUMÉROTATION PERSONNALISÉE
 \theoremstyle{plain}
 \newtheorem{thrm}{Théorème}[section]
-\newtheorem{lemma}{Lemme}[subsection]
+\ifthenelse{\isundefined{\bpresentation}}{
+    \newtheorem{lemma}{Lemme}[subsection]
+}{}
 \newtheorem{corol}{Corollaire}[section]
 % >>>
 % <<< THÉORÈMES, lEMMES -- NUMÉROTATION CLASSIQUE
@@ -102,7 +111,9 @@
 % >>>
 % <<< AUTRES -- NUMÉROTATION PERSONNALISÉE
 \theoremstyle{remark}
-\newtheorem{note}{Note}[subsubsection]
+\ifthenelse{\isundefined{\bpresentation}}{
+    \newtheorem{note}{Note}[subsubsection]
+}{}
 \newtheorem{pr}{Proposition}[subsection]
 \newtheorem{rmq}{Remarque}[subsubsection]
 \newtheorem{nott}{Notation}[subsection]
@@ -162,104 +173,105 @@
 
 % >>>
 % <<< NOM DE PROBLEMES
-\newcommand{\hcycle}{\textsc{HAMILTONIAN CYCLE}}
-\newcommand{\phcycle}[1]{\textsc{HAMILTONIAN CYCLE }paramétré par \textsc{#1}}
-\newcommand{\vcover}{\textsc{VERTEX COVER}}
-\newcommand{\twidth}{\textsc{TREE WIDTH}}
-\newcommand{\wiset}{\textsc{WEIGHTED INDEPENDANT SET}}
-\newcommand{\fvset}{\textsc{FEEDBACK VERTEX SET}}
-\newcommand{\kvcover}{\textsc{K-Vertex Cover}}
-\newcommand{\lpath}{\textsc{Longest Path}}
-\newcommand{\fisched}{\textsc{Flexible Interval Scheduling}}
-\newcommand{\fischedpi}{\textsc{Decision Flexible Interval Scheduling}}
-\newcommand{\unitfischedpi}{\textsc{Decision Unit Flexible Interval Scheduling}}
-\newcommand{\unitfisched}{\textsc{Unit Flexible Interval Scheduling}}
-\newcommand{\precolor}{\textsc{Precoloring Extension}}
-\newcommand{\isched}{\textsc{Interval Scheduling}}
-\newcommand{\bisched}{\textsc{Basic Interval Scheduling}}
-\newcommand{\isma}{\textsc{Interval Scheduling with Machine Availabilities}}
+\newcommand{\hcycle}{{\rmfamily\textsc{Hamiltonian Cycle}}}
+\newcommand{\phcycle}[1]{{\rmfamily\textsc{Hamiltonian Cycle }}paramétré par \textsc{#1}}
+\newcommand{\vcover}{{\rmfamily\textsc{Vertex Cover}}}
+\newcommand{\twidth}{{\rmfamily\textsc{Tree Width}}}
+\newcommand{\wiset}{{\rmfamily\textsc{Weighted Independant Set}}}
+\newcommand{\fvset}{{\rmfamily\textsc{Feedback Vertex Set}}}
+\newcommand{\kvcover}{{\rmfamily\textsc{K-Vertex Cover}}}
+\newcommand{\lpath}{{\rmfamily\textsc{Longest Path}}}
+\newcommand{\fisched}{{\rmfamily\textsc{Flexible Interval Scheduling}}}
+\newcommand{\fischedpi}{{\rmfamily\textsc{Decision Flexible Interval Scheduling}}}
+\newcommand{\unitfischedpi}{{\rmfamily\textsc{Decision Unit Flexible Interval Scheduling}}}
+\newcommand{\unitfisched}{{\rmfamily\textsc{Unit Flexible Interval Scheduling}}}
+\newcommand{\precolor}{{\rmfamily\textsc{Precoloring Extension}}}
+\newcommand{\isched}{{\rmfamily\textsc{Interval Scheduling}}}
+\newcommand{\bisched}{{\rmfamily\textsc{Basic Interval Scheduling}}}
+\newcommand{\isma}{{\rmfamily\textsc{Interval Scheduling with Machine Availabilities}}}
+\newcommand{\binpack}{{\rmfamily\textsc{Bin Packing}}}
 % >>>
 % <<< MISE EN PAGE
 
 \newcommand{\dfopt}[4][nolabel]{
-\noindent
-\begin{minipage}{\linewidth}
-    ~\\
-    \hrule
-    \begin{npbopt}
-        \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
-        #2
-        \begin{itemize}
-            \itemindent 15mm
-            \item[\textbf{Données :}] #3
-            \item[\textbf{Résultat :}] #4
-        \end{itemize}
-    \end{npbopt}
-    \hrule
-    ~\\
-\end{minipage}
+    \noindent
+    \begin{minipage}{\linewidth}
+        ~\\
+        \hrule
+        \begin{npbopt}
+            \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
+            #2
+            \begin{itemize}
+                \itemindent 15mm
+                \item[\textbf{Données :}] #3
+                \item[\textbf{Résultat :}] #4
+            \end{itemize}
+        \end{npbopt}
+        \hrule
+        ~\\
+    \end{minipage}
 }
 
 \newcommand{\dfdec}[4][nolabel]{
-\noindent
-\begin{minipage}{\linewidth}
-    ~\\
-    \hrule
-    \begin{npbdec}
-        \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
-        #2
-        \begin{itemize}
-            \itemindent 15mm
-            \item[\textbf{Données :}] #3
-            \item[\textbf{Question :}] #4
-        \end{itemize}
-    \end{npbdec}
-    \hrule
-    ~\\
-\end{minipage}
+    \noindent
+    \begin{minipage}{\linewidth}
+        ~\\
+        \hrule
+        \begin{npbdec}
+            \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
+            #2
+            \begin{itemize}
+                \itemindent 15mm
+                \item[\textbf{Données :}] #3
+                \item[\textbf{Question :}] #4
+            \end{itemize}
+        \end{npbdec}
+        \hrule
+        ~\\
+    \end{minipage}
 }
 
 \newcommand{\dfpb}[4][nolabel]{
-\noindent
-\begin{minipage}{\linewidth}
-    ~\\
-    \hrule
-    \begin{npb}
-        \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
-        #2
-        \begin{itemize}
-            \itemindent 15mm
-            \item[\textbf{Données :}] #3
-            \item[\textbf{Question :}] #4
-        \end{itemize}
-    \end{npb}
-    \hrule
-    ~\\
-\end{minipage}
+    \noindent
+    \begin{minipage}{\linewidth}
+        ~\\
+        \hrule
+        \begin{npb}
+            \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
+            #2
+            \begin{itemize}
+                \itemindent 15mm
+                \item[\textbf{Données :}] #3
+                \item[\textbf{Question :}] #4
+            \end{itemize}
+        \end{npb}
+        \hrule
+        ~\\
+    \end{minipage}
 }
 
 \newcommand{\dfpbp}[5][nolabel]{
-\noindent
-\begin{minipage}{\linewidth}
-    ~\\
-    \hrule
-    \begin{npb}
-        \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
-        #2
-        \begin{itemize}
-            \itemindent 15mm
-            \item[\textbf{Données :}] #3
-            \item[\textbf{Paramètre :}] #5
-            \item[\textbf{Question :}] #4
-        \end{itemize}
-    \end{npb}
-    \hrule
-    ~\\
-\end{minipage}
+    \noindent
+    \begin{minipage}{\linewidth}
+        ~\\
+        \hrule
+        \begin{npb}
+            \ifthenelse{\equal{#1}{nolabel}}{}{\label{#1}}
+            #2
+            \begin{itemize}
+                \itemindent 15mm
+                \item[\textbf{Données :}] #3
+                \item[\textbf{Paramètre :}] #5
+                \item[\textbf{Question :}] #4
+            \end{itemize}
+        \end{npb}
+        \hrule
+        ~\\
+    \end{minipage}
 }
 % >>>
 
-    
+
 %%% <<< STYLE
 \tikzstyle{edge}=[
 	-,
@@ -361,7 +373,7 @@
 \newcommand{\base}[4]{
     \draw[->] (0,0) to (0, #1);
     \draw[->] (0,0) to (#2, 0);
-    
+
     \node at (0, #1+2) {#3};
     \node at (#2 + 2, -2) {#4};
 }
@@ -370,8 +382,8 @@
 % <<< Bullet itemize
 \newenvironment{bitemize}{
     \begin{itemize}[label=$\bullet$]
-}
-{
+        }
+        {
     \end{itemize}
 }
 % >>>
