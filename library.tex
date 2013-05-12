@@ -16,8 +16,10 @@
 % >>>
 % <<< FIGURES
 \usepackage{graphicx}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{float}
+\usepackage{rotating}
+\usepackage{subcaption}
 % >>>
 % <<< INSERTION DE CODE
 \usepackage{moreverb}
@@ -28,7 +30,7 @@
 % <<< RÉDUCTION DES MARGES
 %\usepackage{fullpage}
 \ifthenelse{\isundefined{\bpresentation}}{
-    \usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=3.5cm]{geometry}
+    \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
     \usepackage{fancyhdr}
 }{}
 % >>>
@@ -59,8 +61,13 @@
 \usepackage{scheduling}
 % >>>
 % <<< ALGORITHMES
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\makeatletter
+%\renewcommand{\ALG@name}{Algorithme}
+%\makeatother
+%\renewcommand{\listalgorithmname}{Liste des \ALG@name s}
+\usepackage[ruled,french]{algorithm2e}
 %\usepackage{algorithmic}
 %\usepackage{algorithmicx}
 % >>>
@@ -170,6 +177,8 @@
 \newcommand{\Taustar}[0]{\mathcal{T}^* = (T, \{X_t : t \in T\})}
 \newcommand{\Taugstar}[0]{\mathcal{T}_G^* = (T, \{X_t : t \in T\})}
 \newcommand{\pdsol}[1]{(X_{#1}^0, X_{#1}^1, X_{#1}^2, M_{#1})}
+\newcommand{\fde}[0]{front d'événements}
+\newcommand{\fdep}[1]{\mathcal{F}^{#1}}
 
 % >>>
 % <<< NOM DE PROBLEMES
@@ -397,5 +406,4 @@
     \textsc{Figure} \thefigure.\thepsubfig{} $-$ #1
     \addtocounter{figure}{-1}
 }
-
 % >>>
