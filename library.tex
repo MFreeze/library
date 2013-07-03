@@ -67,7 +67,7 @@
 %\renewcommand{\ALG@name}{Algorithme}
 %\makeatother
 %\renewcommand{\listalgorithmname}{Liste des \ALG@name s}
-\usepackage[ruled,french]{algorithm2e}
+\usepackage[ruled,noend,noline,french]{algorithm2e}
 %\usepackage{algorithmic}
 %\usepackage{algorithmicx}
 % >>>
@@ -130,6 +130,7 @@
 \newtheorem{npr}{Proposition}
 \newtheorem{nrmq}{Remarque}
 \newtheorem{nnot}{Notation}
+\newtheorem{nprinc}{Principe}
 % >>>
 % <<< AUTRES -- NON NUMÉROTÉS
 \newtheorem*{note*}{Note}
@@ -166,9 +167,9 @@
 
 
 % <<< MACROS DIVERSES
-\newcommand{\npc}{\textbf{NP}-complet}
-\newcommand{\npcude}{\textbf{NP}-complétude}
-\newcommand{\npd}{\textbf{NP}-difficile}
+\newcommand{\npc}[0]{\textbf{NP}-complet}
+\newcommand{\npcude}[0]{\textbf{NP}-complétude}
+\newcommand{\npd}[0]{\textbf{NP}-difficile}
 \newcommand{\la}{largeur arborescente}
 \newcommand{\legendre}[2]{\left ( \frac{#1}{#2} \right )}
 \newcommand{\wqo}[0]{\emph{well-quasi-ordered}}
@@ -190,15 +191,27 @@
 \newcommand{\fvset}{{\rmfamily\textsc{Feedback Vertex Set}}}
 \newcommand{\kvcover}{{\rmfamily\textsc{K-Vertex Cover}}}
 \newcommand{\lpath}{{\rmfamily\textsc{Longest Path}}}
+
 \newcommand{\fisched}{{\rmfamily\textsc{Flexible Interval Scheduling}}}
 \newcommand{\fischedpi}{{\rmfamily\textsc{Decision Flexible Interval Scheduling}}}
 \newcommand{\unitfischedpi}{{\rmfamily\textsc{Decision Unit Flexible Interval Scheduling}}}
 \newcommand{\unitfisched}{{\rmfamily\textsc{Unit Flexible Interval Scheduling}}}
+\newcommand{\disunitfisched}{{\rmfamily\textsc{Disjoint Unit Flexible Interval Scheduling}}}
+\newcommand{\disunitfischedpi}{{\rmfamily\textsc{Decision Disjoint Unit Flexible Interval Scheduling}}}
+\newcommand{\unitevenfisched}{{\rmfamily\textsc{Unit Even Flexible Interval Scheduling}}}
+\newcommand{\unitevenfischedpi}{{\rmfamily\textsc{Decision Unit Even Flexible Interval Scheduling}}}
+
 \newcommand{\precolor}{{\rmfamily\textsc{Precoloring Extension}}}
+\newcommand{\unitprecolor}{{\rmfamily\textsc{Precoloring Extension on Proper Interval Graph}}}
 \newcommand{\isched}{{\rmfamily\textsc{Interval Scheduling}}}
 \newcommand{\bisched}{{\rmfamily\textsc{Basic Interval Scheduling}}}
 \newcommand{\isma}{{\rmfamily\textsc{Interval Scheduling with Machine Availabilities}}}
 \newcommand{\binpack}{{\rmfamily\textsc{Bin Packing}}}
+\newcommand{\gapsched}{{\rmfamily\textsc{Gap Scheduling}}}
+
+\newcommand{\ufsp}{{\rmfamily\textsc{Unit FSP}}}
+\newcommand{\dufsp}{{\rmfamily\textsc{Disjoint Unit FSP}}}
+
 % >>>
 % <<< MISE EN PAGE
 
